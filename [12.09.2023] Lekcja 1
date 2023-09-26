@@ -6,3 +6,62 @@ git for windows
             short
             int
             uint
+
+
+--------------------------------------------
+
+byte b = 255;//0-255
+sbyte sb = -128;//-128 - 127
+short s = -32768;//-32768 - 32768
+int in_1 = -2147483648;//-2 147 483 648 - 2 147 483 648
+/*
+byte (8 bitów => 1 bajt)            | 0                              -      255
+sbyte (8 bitów => 1 bajt)           | -128                           -      127
+short (16 bitów => 2 bajty)         | -32768                         -      32767
+ushort (16 bitów => 2 bajty)        | 0                              -      65535
+int (32 bitów => 4 bajty)           | -2 147 483 648                 -      2 147 483 647
+uint (32 bitów => 4 bajty)          | 0                              -      4 294 967 295
+long (64 bitów => 8 bajtów)         | -9 223 372 036 854 775 808     -      9 223 372 036 854 775 807      |Sufix L
+ulong (64 bity => 8 bajtów)         | 0                              -      18 446 744 073 709 551 615     |Sufix UL
+bool                                | true                           -      false
+char (16 bitów => 2 bajty, znak z tablicy Unicode)         |  U+0000 -      U+FFFF 
+srting ?
+float (32 bity)                     | -3.4 x 10^38                   -      3.4 x 10^38 
+double (64 bity)
+decimal (128 bitów)
+*/
+
+long l = 69;
+ulong ul = 69UL;
+Console.WriteLine("Zmienna l: {0}, zmienna ul:{1}", l, ul);
+
+float f = 10.5F;
+Console.WriteLine("Zmienna f wynosi: " + f);//10,5
+
+float f1 = 10;
+Console.WriteLine(f1);//10
+
+Console.WriteLine("Ilość batów w pamięci typu float: " + sizeof(float));//4 bajty
+Console.WriteLine("Ilość batów w pamięci typu bool: " + sizeof(bool));//1 bajt
+Console.WriteLine("Ilość batów w pamięci typu int: " + sizeof(int));//4 bajty
+
+//zapis systemów liczbowych
+//binarnych
+Console.WriteLine(0b1010); //10
+//oktalnych
+int i2 = Convert.ToInt32("12", 8);
+Console.WriteLine("Zamiana liczby oktalnej na dziesiętną" + 012); //12(8) => 1x8^1 + 2x8^0
+//heksadecymalnych
+Console.WriteLine(0xA); //10
+//dziesiętny
+Console.WriteLine(69); //69
+
+// Zakres typów danych
+Console.WriteLine($"{byte.MinValue} - {byte.MaxValue}"); //0 -255
+Console.WriteLine($"{sbyte.MinValue} - {sbyte.MaxValue}"); //-128 - 127
+Console.WriteLine($"{int.MinValue} - {Int32.MaxValue} - {System.Int32.MinValue}"); //-2 147 483 648 - -2 147 483 648
+
+Console.ReadKey();
+
+
+-----------------------------------------------------
