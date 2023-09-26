@@ -63,5 +63,15 @@ Console.WriteLine($"{int.MinValue} - {Int32.MaxValue} - {System.Int32.MinValue}"
 
 Console.ReadKey();
 
+//Unicode
+Console.OutputEncoding = System.Text.Encoding.Unicode;  
+Console.WriteLine("☺");
+Console.WriteLine("\x2665");
+
+char letter = 'A';
+Console.WriteLine(letter);
+
+char letter2 = (char)97;
+Console.WriteLine(letter2);
 
 -----------------------------------------------------
