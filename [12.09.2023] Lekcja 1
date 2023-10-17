@@ -75,3 +75,29 @@ char letter2 = (char)97;
 Console.WriteLine(letter2);
 
 -----------------------------------------------------
+
+Console.Write("Podaj bok a: ");
+double a = double.Parse(Console.ReadLine());
+Console.Write("Podaj bok b: ");
+double b = double.Parse(Console.ReadLine());
+Console.Write("Podaj bok c: ");
+double c = double.Parse(Console.ReadLine());
+double p = (a + b + c) / 2;
+double heron = Math.Sqrt(p * (p - a) * (p - b) * (p - c));
+Console.WriteLine(heron);
+
+
+
+Console.Write("Podaj bok a: ");
+double a;
+if (double.TryParse(Console.ReadLine(), out a))
+{
+    Console.WriteLine(a);
+}
+else
+{
+    Console.WriteLine("Błędne dane podane przez użytkownika!");
+}
+
+
+
