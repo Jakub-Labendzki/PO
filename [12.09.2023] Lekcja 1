@@ -101,3 +101,53 @@ else
 
 
 
+
+
+------------------------------------------------------------------
+
+            string input;
+            do
+            {
+                Console.Write("Podaj liczbę całkowitą albo 0 aby wyjść z programu:");
+                input = Console.ReadLine();
+                if (input == "q")
+                {
+                    break;
+                }
+                try
+                {
+                    int number = int.Parse(input);
+                    number = int.Parse(Console.ReadLine());
+                    if (number < 0)
+                    {
+                        throw new ArgumentOutOfRangeException("Liczba nie może buć ujemna");
+                    }
+                    if (number > 0)
+                    {
+                        double sqrt = Math.Sqrt(number);
+                        Console.WriteLine($"\nPierwiastek z {number} wynosi {sqrt}\n\n");
+                    }
+                }
+                catch (FormatException) 
+                {
+                    Console.WriteLine("Nieprawidłowe dane wejściowe, podaj liczbę całkowitą.");
+                }
+                catch (OverflowException)
+                {
+                    Console.WriteLine($"Przekroczono zzakres liczaby <{int.MinValue}> ; <{int.MaxValue}>");
+                }
+                catch (ArgumentOutOfRangeException ex)
+                {
+                    Console.WriteLine($"Błąd: {ex.Message}");
+                }
+                catch (Exception e) 
+                {
+                    Console.WriteLine($"Inny błąd: {e.Message}");
+                }
+                finally
+                {
+                    Console.WriteLine("Dzieki mordo");
+                }
+            } 
+            while (input == "q");
+
