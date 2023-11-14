@@ -157,3 +157,82 @@ else
 
 -------------------------------------------------------------------------
 Definiowanie klas
+
+
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Linq;
+using System.Linq.Expressions;
+using System.Runtime.InteropServices.WindowsRuntime;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp2
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            int[] tabA = CreateArray("tabA");
+            if (tabA != null) 
+            {
+                SetArray(tabA, "tabA");
+                DisplayArray(tabA, "tabA");
+            }
+        }
+
+        //funkcja statyczna, która pozwala wprowadzić rozmiar tablicy i nazwę (CreateArray)
+        public static int[] CreateArray(string name)
+        {
+            Console.Write($"Podaj rozmiar tablicy <0 ; {int.MaxValue}>: ");
+            int size = 0;
+            try
+            {
+                size = int.Parse(Console.ReadLine());
+                if (size <= 0) throw new ArgumentException("\nRozmiar tablicy musi być dodatni");
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine("Wystąpił błąd: {0}", e.Message);
+                return null;
+            }
+            int[] array = new int[size];
+            return array;
+        }
+
+        //funkcja statyczna, która ustawia elementy tablicy
+        public static void SetArray(int[] nameset, string name)
+        {
+            Console.WriteLine($"\nPodaj elementy tablicy {name}: ");
+            for (int i = 0; i < nameset.Length; i++)
+            {
+                Console.Write($"Podaj elementy tablicy {i + 1}: ");
+                try
+                {
+                    nameset[i] = int.Parse(Console.ReadLine());
+
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("\nWystąpił błąd: {0}\n ", e.Message);
+                    i--;
+                }
+            }
+            
+           
+        }
+
+        //funkcja statyczna, która wyświetla zawartość tablicy
+        public static void DisplayArray(int[] array, string name)
+        {
+            Console.WriteLine($"\nWyświetlenie elementów zawartości");
+            int i = 0;
+            foreach (var element in array)
+            {
+                Console.WriteLine($"\n{name}[{i}]: {element}");
+                i++;
+            }
+        }
+    }
+}
